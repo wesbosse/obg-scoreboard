@@ -1,8 +1,5 @@
-lib-cov
-coverage
-.DS_Store
-logs
-*.log
-node_modules
 .vscode
+node_modules
 dist
+*.log
+yarn.lock
