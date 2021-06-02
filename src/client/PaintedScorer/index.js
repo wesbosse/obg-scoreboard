@@ -36,7 +36,7 @@ const SecondaryObjectiveScorer = ({updateTotal}) => {
       <SecondaryObjectiveTally
         number="Three"
         handlePointUpdate={(points) => handlePointUpdate(3, points)}/>
-        
+
       <div className="total-points">
         <div className="total-points__label">
                     Secondary Points Total

@@ -6,6 +6,7 @@ import "./style.css";
 
 const PlayerDetails = ({id}) => {
   const [name, setName] = useState("");
+  const [teamName, setTeamName] = useState("");
   const [cp, setCP] = useState("0");
   const [faction, setFaction] = useState("");
 
@@ -16,6 +17,13 @@ const PlayerDetails = ({id}) => {
         label={`Player ${id} Name`}
         onChange={setName}
         value={name}
+        className="PlayerInput__name"
+      />
+      <PlayerInput
+        id={`player-team-${id}`}
+        label={`Player ${id} Team Name`}
+        onChange={setTeamName}
+        value={teamName}
         className="PlayerInput__name"
       />
       <PlayerInput

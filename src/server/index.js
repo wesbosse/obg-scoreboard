@@ -24,22 +24,6 @@ var imageData = {
             team: 'OBG',
             score: 21,
             cp: 0
-        },
-        {
-            key: 3,
-            army: '',
-            name: '',
-            team: '',
-            score: 0,
-            cp: 0
-        },
-        {
-            key: 4,
-            army: '',
-            name: '',
-            team: '',
-            score: 0,
-            cp: 0
         }
     ]
 }
