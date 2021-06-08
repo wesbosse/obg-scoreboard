@@ -11,19 +11,33 @@ var imageData = {
     players: [
         {
             key: 1,
-            army: 'Salamanders',
+            faction: 'Salamanders',
             name: 'Griffin',
-            team: 'TN Losers',
-            score: 7,
+            teamName: 'TN Titans',
+            primary2: 5,
+            primary3: 10,
+            primary4: 15,
+            primary5: 10,
+            secondary1: 7,
+            secondary2: 12,
+            secondary3: 9,
+            paintedPoints: 1,
             cp: 6
         },
         {
             key: 2,
-            army: 'Necrons',
+            faction: 'Necrons',
             name: 'Wesley',
-            team: 'OBG',
-            score: 21,
-            cp: 0
+            teamName: 'OBG',
+            primary2: 5,
+            primary3: 0,
+            primary4: 5,
+            primary5: 0,
+            secondary1: 2,
+            secondary2: 1,
+            secondary3: 4,
+            paintedPoints: 0,
+            cp: 1
         }
     ]
 }
@@ -80,7 +94,7 @@ app.get('/api/getUsername', (req, res) =>
 );
 
 app.get('/api/player/:index', (req, res) => 
-    res.send({ player: imageData.players[req.params.index] })
+    res.send({ player: imageData.players[req.params.index - 1] })
 );
 
 app.post('/api/player/:index', (req, res) => {
