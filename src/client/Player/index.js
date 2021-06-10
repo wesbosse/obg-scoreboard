@@ -55,11 +55,11 @@ const Player = ({id, visible}) => {
   }, [setPrimary, primary]);
 
   const fetchData = React.useCallback(() => {
-    console.log('firing fetch: ', `http://obg-scoreboard.herokuapp.com/api/player/${id}`);
+    console.log('firing fetch: ', `https://obg-scoreboard.herokuapp.com/api/player/${id}`);
 
     axios({
       "method": "GET",
-      "url": `http://obg-scoreboard.herokuapp.com/api/player/${id}`,
+      "url": `https://obg-scoreboard.herokuapp.com/api/player/${id}`,
     })
     .then((response) => {
       console.log(response)
