@@ -25,10 +25,8 @@ function App() {
         </div>
         
         <hr />
-        
-        <a target='_blank'>Submit</a>
         <br/>
-        <a href='api/game' target='_blank'>Scoreboard</a>
+        <a href='/api/gameOverlay' target='_blank'>Scoreboard</a>
 
       </div>
     </div>

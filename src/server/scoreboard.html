@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OBG Scoreboard</title>
+    <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <img src="https://cdn.shoplightspeed.com/shops/634891/files/32936232/obg-twitchoverlay1-layers-2102011822.png" alt="test">
+    <script>
+        $.getJSON( "/api/game", function( data ) {
+            console.log(data)
+            var game = data.game;
+            var player1 = game.players[0]
+            var player2 = game.players[1]
+            $('body').prepend('<div style="position:fixed;left:1550px;top:80px;">'+ game.turn +'</div>')
+            $('body').prepend('<div style="position:fixed;left:1550px;top:272px;">'+ player1.name +'</div>')
+            $('body').prepend('<div style="position:fixed;left:1535px;top:335px;">'+ player1.faction +'</div>')
+            $('body').prepend('<div style="position:fixed;left:1550px;top:555px;">'+ player2.name +'</div>')
+            $('body').prepend('<div style="position:fixed;left:1535px;top:492px;">'+ player2.faction +'</div>')
+        });
+    </script>
+</body>
+
+</html>

@@ -17,10 +17,6 @@ const RoundScorerPointSelector = ({handlePointSelection, points, selected}) => {
   );
 };
 
-RoundScorerPointSelector.propTypes = {
-  handlePointSelection: PropTypes.func.isRequired,
-  points: PropTypes.oneOf([5, 10, 15]).isRequired,
-  selected: PropTypes.bool.isRequired
-};
+
 
 export default RoundScorerPointSelector;

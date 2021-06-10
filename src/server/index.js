@@ -78,6 +78,10 @@ const updateOverlay = () => {
     return 420;
 }
 
+const htmlGenerator = (gameData) => {
+    return true;
+}
+
 
 const app = express();
 
@@ -102,7 +106,7 @@ app.post('/api/player/:index', (req, res) => {
         ...imageData.players[req.params.index - 1],
         ...req.body
     }
-    updateOverlay();
+
     res.status(200).redirect('/')
 });
 
@@ -112,13 +116,11 @@ app.get('/api/game', (req, res) =>
 
 app.post('/api/turn', (req, res) => {
     imageData.turn = req.body.turn
-    updateOverlay();
     res.status(200).redirect('/')
 });
 
 app.get('/api/gameOverlay', (req, res) => {
- 
-    res.status(200).redirect('/public/overlay-current.png')
+    res.sendFile(path.join(__dirname+'/scoreboard.html'));
 });
 
 
