@@ -145,6 +145,7 @@ const Player = ({id, visible}) => {
       <div className="PrimaryObjectiveScorer">
       <PlayerInput
         id={`${id}-round2`}
+        type="number"
         label={"Primary - Round 2"}
         onChange={(value)=>handlePrimaryUpdate( 2, Number(value))}
         value={primary.round2}
@@ -152,6 +153,7 @@ const Player = ({id, visible}) => {
       />
       <PlayerInput
         id={`${id}-round3`}
+        type="number"
         label={"Primary - Round 3"}
         onChange={(value)=>handlePrimaryUpdate( 3, Number(value))}
         value={primary.round3}
@@ -159,6 +161,7 @@ const Player = ({id, visible}) => {
       />
       <PlayerInput
         id={`${id}-round4`}
+        type="number"
         label={"Primary - Round 4"}
         onChange={(value)=>handlePrimaryUpdate( 4, Number(value))}
         value={primary.round4}
@@ -166,6 +169,7 @@ const Player = ({id, visible}) => {
       />
       <PlayerInput
         id={`${id}-round5`}
+        type="number"
         label={"Primary - Round 5"}
         onChange={(value)=>handlePrimaryUpdate( 5, Number(value))}
         value={primary.round5}
