@@ -47,7 +47,7 @@ const Player = ({id, visible}) => {
   }, [setPoints, points]);
 
   const handlePrimaryUpdate = React.useCallback((round, total) => {
-    
+    console.log(round, total, primary)
     setPrimary({
       ...primary,
       ...{[`round${round}`]: total}
@@ -142,18 +142,35 @@ const Player = ({id, visible}) => {
       />
     </div>
       <div className="PrimaryObjectiveScorer">
-        <RoundScorer
-          round={2}
-          handlePrimaryUpdate={(primary) => handlePrimaryUpdate(2, primary)} />
-        <RoundScorer
-          round={3}
-          handlePrimaryUpdate={(primary) => handlePrimaryUpdate(3, primary)} />
-        <RoundScorer
-          round={4}
-          handlePrimaryUpdate={(primary) => handlePrimaryUpdate(4, primary)} />
-        <RoundScorer
-          round={5}
-          handlePrimaryUpdate={(primary) => handlePrimaryUpdate(5, primary)} />
+      <PlayerInput
+        id={`${id}-round2`}
+        label={"Primary - Round 2"}
+        onChange={(value)=>handlePrimaryUpdate( 2, Number(value))}
+        value={primary.round2}
+        max={15}
+      />
+      <PlayerInput
+        id={`${id}-round3`}
+        label={"Primary - Round 3"}
+        onChange={(value)=>handlePrimaryUpdate( 3, Number(value))}
+        value={primary.round3}
+        max={15}
+      />
+      <PlayerInput
+        id={`${id}-round4`}
+        label={"Primary - Round 4"}
+        onChange={(value)=>handlePrimaryUpdate( 4, Number(value))}
+        value={primary.round4}
+        max={15}
+      />
+      <PlayerInput
+        id={`${id}-round5`}
+        label={"Primary - Round 5"}
+        onChange={(value)=>handlePrimaryUpdate( 5, Number(value))}
+        value={primary.round5}
+        max={15}
+      />
+
 
         <div className="total-points">
           <div className="total-points__label">

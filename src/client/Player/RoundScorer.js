@@ -18,20 +18,7 @@ const RoundScorer = ({round, handlePointUpdate}) => {
   return (
     <div className="RoundScorer">
       <div className="RoundScorer__element RoundScorer__title">Primary Objective - Round { round }</div>
-      <RoundScorerPointSelector
-        handlePointSelection={handlePointSelection}
-        points={5}
-        selected={currentSelection === 5}/>
-
-      <RoundScorerPointSelector
-        handlePointSelection={handlePointSelection}
-        points={10}
-        selected={currentSelection === 10}/>
-
-      <RoundScorerPointSelector
-        handlePointSelection={handlePointSelection}
-        points={15}
-        selected={currentSelection === 15}/>
+      <input type="number" onChange={handlePointUpdate}/>
     </div>
   );
 };
