@@ -9,25 +9,117 @@
     <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
+    <style>
+        body {
+            background-color: green;
+        }
+
+        .number {
+            font-size: 64px;
+        }
+        .title {
+            font-size: 52px;
+        }
+        .subtitle {
+            font-size: 32px;
+        }
+        #turn {
+            position:fixed;
+            left:1563px;
+            top:80px;
+        }
+        #name1 {
+            position:fixed;
+            left:1550px;
+            top:330px;
+        }
+        #faction1 {
+            position:fixed;
+            left:1540px;
+            top:277px;
+        }
+        #score1 {
+            position:fixed;
+            left:1575px;
+            top:372px;
+        }
+        #cp1 {
+            position:fixed;
+            left:1708px;
+            top:372px;
+        }
+        #name2 {
+            position:fixed;
+            left:1550px;
+            top:555px;
+        }
+        #faction2 {
+            position:fixed;
+            left:1540px;
+            top:502px;
+        }
+        #score2 {
+            position:fixed;
+            left:1575px;
+            top:597px;
+        }
+        #cp2 {
+            position:fixed;
+            left:1708px;
+            top:597px;
+        }
+    </style>
 </head>
 
 <body>
+    <div id="turn"      class="number">     </div>
+    <div id="name1"     class="subtitle">   </div>
+    <div id="faction1"  class="title">      </div>
+    <div id="score1"     class="number">     </div>
+    <div id="cp1"     class="number">     </div>
+    <div id="name2"     class="subtitle">   </div>
+    <div id="faction2"  class="title">      </div>
+    <div id="score2"     class="number">     </div>
+    <div id="cp2"     class="number">     </div>
     <img src="https://cdn.shoplightspeed.com/shops/634891/files/32936232/obg-twitchoverlay1-layers-2102011822.png" alt="test">
     <script>
-        $.getJSON( "/api/game", function( data ) {
-            console.log(data)
-            var game = data.game;
-            var player1 = game.players[0]
-            var player2 = game.players[1]
-            $('body').prepend('<div style="position:fixed;left:1550px;top:80px;">'+ game.turn +'</div>')
-            $('body').prepend('<div style="position:fixed;left:1550px;top:272px;">'+ player1.name +'</div>')
-            $('body').prepend('<div style="position:fixed;left:1535px;top:335px;">'+ player1.faction +'</div>')
-            $('body').prepend('<div style="position:fixed;left:1550px;top:555px;">'+ player2.name +'</div>')
-            $('body').prepend('<div style="position:fixed;left:1535px;top:492px;">'+ player2.faction +'</div>')
-        });
-        window.setTimeout(function () {
-            window.location.reload();
+        function refreshOverlay() {
+            $.getJSON( "/api/game", function( data ) {
+                // load game data
+                var game = data.game;
+
+                // create player 1 variable and calc score
+                var player1 = game.players[0];
+                var score1 = player1.primary2 + player1.primary3 + player1.primary4 + player1.primary5 + player1.secondary1 + player1.secondary2 + player1.secondary3;
+
+                // create player 2 variable and calc score
+                var player2 = game.players[1];
+                var score2 = player2.primary2 + player2.primary3 + player2.primary4 + player2.primary5 + player2.secondary1 + player2.secondary2 + player2.secondary3;
+                
+                // set turn number
+                $("#turn").text(game.turn);
+                
+                // fill player 1 display
+                $("#name1").text(player1.name);
+                $("#faction1").text(player1.faction);
+                $("#score1").text(score1);
+                $("#cp1").text(player1.cp);
+                
+                // fill player 2 display
+                $("#name2").text(player2.name);
+                $("#faction2").text(player2.faction);
+                $("#score2").text(score2);
+                $("#cp2").text(player2.cp);
+            });
+
+            return 420
+        }
+        
+        refreshOverlay()
+        window.setInterval(function () {
+            refreshOverlay()
         }, 6000);
     </script>
 </body>
