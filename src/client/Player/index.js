@@ -228,8 +228,10 @@ const Player = ({id, visible}) => {
           { primaryPoints + secondaryPoints + (paintedPoints * 10) } / 100
         </div>
       </div>
+      <br />
+      <br />
       <div>
-        <button onClick={submitPlayer}>Update Player {id}</button>
+        <div className="submit" onClick={submitPlayer}>Update Player {id}</div>
       </div>
     </div>
   );

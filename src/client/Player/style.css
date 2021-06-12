@@ -115,6 +115,19 @@
 .SecondaryObjectiveTally__point--tallied:hover {
     background-color: #99d2a3;
 }
+.submit {
+    background-color: #99d2a3;
+    font-size: 24;
+    font-weight: bold;
+    padding: 15px;
+    border: 1px solid black;
+  }
+  .submit:hover {
+    background-color: #c9e8ce;
+  }
+  .submit:active {
+    background-color: #cec;
+  }
 
 @media only screen and (min-width : 1000px) {
     .Player {
