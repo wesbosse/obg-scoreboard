@@ -70,10 +70,10 @@ const Player = ({id, visible}) => {
       setFaction(playerData.faction)
       setPaintedPoints(playerData.paintedPoints)
       setPrimary({
-        round2: playerData.primary2,
-        round3: playerData.primary3,
-        round4: playerData.primary4,
-        round5: playerData.primary5,
+        round2: playerData.round2,
+        round3: playerData.round3,
+        round4: playerData.round4,
+        round5: playerData.round5,
       })
       setPoints({
         secondary1: playerData.secondary1,
@@ -95,6 +95,7 @@ const Player = ({id, visible}) => {
       ...points,
       ...primaryPoints
     });
+    alert('Submitted')
   }
 
   React.useEffect(() => {
