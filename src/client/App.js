@@ -1,11 +1,20 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Player from "./Player/index";
+import PlayerInput from "./PlayerInput/index"
 
 
 import "./App.css";
 
 function App() {
   const [visiblePlayer, setVisiblePlayer] = useState(true);
+  const [turn, setTurn] = useState(1);
+
+  const submitTurn = () => {
+    axios.post(`/api/turn`, {
+      turn: turn
+    });
+  }
 
   return (
     <div>
@@ -18,7 +27,16 @@ function App() {
           onClick={() => setVisiblePlayer(!visiblePlayer)}>
             Switch to Player { visiblePlayer ? 2 : 1 }
         </button>
-        
+        <div>
+          <PlayerInput
+            id={`turn`}
+            label={`Turn`}
+            onChange={setTurn}
+            value={turn}
+            className="turn"
+          />
+          <div className="submit" onClick={submitTurn}>Change Turn</div>
+        </div>
         <div className="App__players">
           <Player id={1} visible={ visiblePlayer }/>
           <Player id={2} visible={ !visiblePlayer }/>
