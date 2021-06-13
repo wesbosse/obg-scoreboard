@@ -35,6 +35,11 @@
             left:1550px;
             top:330px;
         }
+        #team1 {
+            position:fixed;
+            left:1750px;
+            top:330px;
+        }
         #faction1 {
             position:fixed;
             left:1540px;
@@ -53,6 +58,11 @@
         #name2 {
             position:fixed;
             left:1550px;
+            top:555px;
+        }
+        #team2 {
+            position:fixed;
+            left:1750px;
             top:555px;
         }
         #faction2 {
@@ -77,19 +87,21 @@
     <div id="turn"      class="number">     </div>
     <div id="name1"     class="subtitle">   </div>
     <div id="faction1"  class="title">      </div>
-    <div id="score1"     class="number">     </div>
-    <div id="cp1"     class="number">     </div>
+    <div id="score1"    class="number">     </div>
+    <div id="cp1"       class="number">     </div>
+    <div id="team1"     class="subtitle">   </div>
     <div id="name2"     class="subtitle">   </div>
     <div id="faction2"  class="title">      </div>
-    <div id="score2"     class="number">     </div>
-    <div id="cp2"     class="number">     </div>
+    <div id="score2"    class="number">     </div>
+    <div id="cp2"       class="number">     </div>
+    <div id="team2"     class="subtitle">   </div>
     <img src="https://cdn.shoplightspeed.com/shops/634891/files/32936232/obg-twitchoverlay1-layers-2102011822.png" alt="test">
     <script>
         function refreshOverlay() {
             $.getJSON( "/api/game", function( data ) {
                 // load game data
                 var game = data.game;
-
+                console.log(data)
                 // create player 1 variable and calc score
                 var player1 = game.players[0];
                 var score1 = player1.round2 + player1.round3 + player1.round4 + player1.round5 + player1.secondary1 + player1.secondary2 + player1.secondary3;
@@ -106,12 +118,14 @@
                 $("#faction1").text(player1.faction);
                 $("#score1").text(score1);
                 $("#cp1").text(player1.cp);
+                $("#team1").text(player1.teamName);
                 
                 // fill player 2 display
                 $("#name2").text(player2.name);
                 $("#faction2").text(player2.faction);
                 $("#score2").text(score2);
                 $("#cp2").text(player2.cp);
+                $("#team2").text(player2.teamName);
             });
 
             return 420
