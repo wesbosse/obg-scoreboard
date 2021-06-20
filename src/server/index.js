@@ -46,16 +46,18 @@ var gameData = {
 const app = express();
 
 
-app.use(wwwhisper());
+
 app.use(express.static(dir));
 app.use(express.static('dist'));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
+app.get('/api/gameOverlay', (req, res) => {res.sendFile(path.join(__dirname+'/scoreboard.html'));});
+
+app.use(wwwhisper());
+
 app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().username }));
-
 app.get('/api/player/:index', (req, res) => res.send({ player: gameData.players[req.params.index - 1] }));
-
 app.post('/api/player/:index', (req, res) => {
     gameData.players[req.params.index - 1] = {
         ...gameData.players[req.params.index - 1],
@@ -71,7 +73,5 @@ app.post('/api/turn', (req, res) => {
     gameData.turn = req.body.turn
     res.status(200)
 });
-
-app.get('/api/gameOverlay', (req, res) => {res.sendFile(path.join(__dirname+'/scoreboard.html'));});
 
 app.listen(process.env.PORT || 8080, () => console.log(`Listening on port ${process.env.PORT || 8080}!`));
