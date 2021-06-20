@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 const os = require('os');
 var path = require('path');
 var Jimp = require('jimp');
+var wwwhisper = require('connect-wwwhisper');
 
 var dir = path.join(__dirname, 'public');
 var gameData = {
@@ -45,7 +46,7 @@ var gameData = {
 const app = express();
 
 
-
+app.use(wwwhisper());
 app.use(express.static(dir));
 app.use(express.static('dist'));
 app.use(bodyParser.json()); 
