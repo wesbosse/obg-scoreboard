@@ -67,7 +67,7 @@ const Player = ({id, visible}) => {
       setTeamName(playerData.teamName)
       setCP(playerData.cp)
       setFaction(playerData.faction)
-      setPaintedPoints(playerData.paintedPoints)
+      setPaintedPoints(playerData.paintedPoints / 10)
       setPrimary({
         round2: playerData.round2,
         round3: playerData.round3,
