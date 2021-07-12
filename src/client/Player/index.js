@@ -87,7 +87,7 @@ const Player = ({id, visible}) => {
 
   const submitPlayer = () => {
     
-    console.log(primary, primaryPoints, 
+    console.log(primary, primaryPoints)
     
     axios.post(`/api/player/${id}`, {
       faction: faction,
