@@ -93,7 +93,7 @@ const Player = ({id, visible}) => {
       teamName: teamName,
       cp: cp,
       ...points,
-      ...primaryPoints
+      ...primary
     });
     alert('Submitted')
   }
