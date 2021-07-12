@@ -47,7 +47,6 @@ const Player = ({id, visible}) => {
   }, [setPoints, points]);
 
   const handlePrimaryUpdate = React.useCallback((round, total) => {
-    console.log(round, total, primary)
     setPrimary({
       ...primary,
       ...{[`round${round}`]: total}
@@ -87,6 +86,9 @@ const Player = ({id, visible}) => {
   }, [])
 
   const submitPlayer = () => {
+    
+    console.log(primary, primaryPoints, 
+    
     axios.post(`/api/player/${id}`, {
       faction: faction,
       name: name,
