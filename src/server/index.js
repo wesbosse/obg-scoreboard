@@ -63,6 +63,8 @@ app.post('/api/player/:index', (req, res) => {
         ...gameData.players[req.params.index - 1],
         ...req.body
     }
+    
+    console.log(req.body)
 
     res.status(200).redirect('/')
 });
