@@ -94,6 +94,7 @@ const Player = ({id, visible}) => {
       name: name,
       teamName: teamName,
       cp: cp,
+      paintedPoints: paintedPoints * 10,
       ...points,
       ...primary
     });
